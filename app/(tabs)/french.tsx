@@ -1,46 +1,47 @@
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+// app/French.tsx
+import { useRouter } from 'expo-router';
+import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { RootStackParamList } from '../constants/types';
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'French'>;
+export default function FrenchScreen() {
+  const router = useRouter() as any;
 
-export default function French() {
-   const navigation = useNavigation<NavigationProp>(); [
-  { id: '1', french: 'Bonjour', english: 'Hello' },
-  { id: '2', french: 'Merci', english: 'Thank you' },
-  { id: '3', french: 'Au revoir', english: 'Goodbye' },
-  { id: '4', french: 'S’il vous plaît', english: 'Please' },
-  { id: '5', french: 'Oui', english: 'Yes' },
-  { id: '6', french: 'Non', english: 'No' },
-  { id: '7', french: 'Comment ça va ?', english: 'How are you?' },
-  { id: '8', french: 'Très bien', english: 'Very good' },
-  { id: '9', french: 'Parlez-vous anglais ?', english: 'Do you speak English?' },
-  { id: '10', french: 'Je ne comprends pas', english: 'I don’t understand' },
-];
+  const handleStart = () => {
+    router.push('/FrenchVocabulary');
+  };
 
+  const handleQuiz = () => {
+    router.push('/FrenchQuiz');
+  };
+
+  const handleReview = () => {
+    router.push('/FrenchFlashcards');
+  };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>🇫🇷 French Vocabulary</Text>
+      <Text style={styles.title}>🇫🇷 French Vocabulary</Text>
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('FrenchVocabulary')}
+        onPress={handleStart}
+        accessibilityLabel="Start Vocabulary List"
       >
         <Text style={styles.buttonText}>Start Vocabulary List</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('FrenchQuiz')}
+        onPress={handleQuiz}
+        accessibilityLabel="Take a Quiz"
       >
         <Text style={styles.buttonText}>Take a Quiz</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('FrenchFlashcards')}
+        onPress={handleReview}
+        accessibilityLabel="Review Flashcards"
       >
         <Text style={styles.buttonText}>Review Flashcards</Text>
       </TouchableOpacity>
@@ -48,27 +49,26 @@ export default function French() {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000', // You can change this to match your app theme
-    alignItems: 'center',
+    backgroundColor: '#000',
     justifyContent: 'center',
+    alignItems: 'center',
     padding: 20,
   },
-  heading: {
-    fontSize: 28,
-    fontWeight: 'bold',
+  title: {
     color: '#fff',
+    fontSize: 32,
+    fontWeight: '700',
     marginBottom: 30,
   },
   button: {
-    backgroundColor: '#6c63ff',
-    padding: 15,
-    marginVertical: 10,
-    borderRadius: 8,
-    width: '80%',
+    width: '85%',
+    backgroundColor: '#6f5af8',
+    paddingVertical: 18,
+    borderRadius: 12,
+    marginVertical: 12,
     alignItems: 'center',
   },
   buttonText: {
@@ -76,3 +76,4 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
+
