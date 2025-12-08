@@ -1,7 +1,6 @@
-// app/FrenchFlashcards.tsx
-import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { View, Text, Pressable, TouchableOpacity, StyleSheet } from 'react-native';
+import { useRouter } from 'expo-router';
 
 const WORDS = [
   { fr: 'Bonjour', en: 'Hello' },
@@ -12,28 +11,27 @@ const WORDS = [
   { fr: 'Non', en: 'No' },
 ];
 
-export default function FrenchFlashcardsScreen() {
-  const router = useRouter() as any;
+export default function FlashcardsScreen() {
+  const router = useRouter();
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
 
   const current = WORDS[index];
 
   const next = () => {
-    setIndex(i => (i + 1) % WORDS.length);
+    setIndex((i) => (i + 1) % WORDS.length);
     setFlipped(false);
   };
-
   const prev = () => {
-    setIndex(i => (i - 1 + WORDS.length) % WORDS.length);
+    setIndex((i) => (i - 1 + WORDS.length) % WORDS.length);
     setFlipped(false);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Review Flashcards</Text>
+      <Text style={styles.header}>Flashcards</Text>
 
-      <Pressable style={styles.card} onPress={() => setFlipped(v => !v)}>
+      <Pressable style={styles.card} onPress={() => setFlipped((v) => !v)}>
         <Text style={styles.cardText}>{flipped ? current.en : current.fr}</Text>
       </Pressable>
 
@@ -42,9 +40,7 @@ export default function FrenchFlashcardsScreen() {
           <Text style={styles.smallBtnText}>Prev</Text>
         </TouchableOpacity>
 
-        <Text style={styles.counter}>
-          {index + 1} / {WORDS.length}
-        </Text>
+        <Text style={styles.counter}>{index + 1} / {WORDS.length}</Text>
 
         <TouchableOpacity style={styles.smallBtn} onPress={next}>
           <Text style={styles.smallBtnText}>Next</Text>

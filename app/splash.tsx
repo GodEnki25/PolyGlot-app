@@ -1,19 +1,21 @@
 // app/splash.tsx
 import { useRouter } from 'expo-router';
-import { useEffect } from 'react';
-import React, { Image, StyleSheet, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { Image, StyleSheet, View } from 'react-native';
 
 export default function SplashScreen() {
   const router = useRouter();
+
   useEffect(() => {
     const timer = setTimeout(() => {
       router.replace('/home');
     }, 3000); // 3 seconds
     return () => clearTimeout(timer);
-  }, []);
+  }, [router]);
+
   return (
     <View style={styles.container}>
-      <Image source={require('/Users/sorel/PolyGlot/assets/images/IMG_0702.png')} style={styles.logo} />
+      <Image source={require('../assets/images/IMG_0702.png')} style={styles.logo} />
       <View style={styles.progressBarContainer}>
         <View style={styles.orangeBar} />
         <View style={styles.blackBar} />
@@ -25,6 +27,7 @@ export default function SplashScreen() {
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
