@@ -29,12 +29,12 @@
 
 ## 👥 Team Members
 
-| Name           | Role                    |
-|----------------|-------------------------|
-| Sorel Alvarus  | Frontend Developer / Lead |
-| Neako Ramos    | UI/UX Designer          |
-| Member 3       | Backend Logic & APIs    |
-| Member 4       | QA Testing / Deployment |
+| Name           | Role                             |
+|----------------|--------------------------------- |
+| Sorel Alvarus         | Frontend Developer / Lead |
+| Roshan Inaganti       | UI/UX Designer            |
+| Sorel Alvarus         | Backend Logic & APIs      |
+| Ian Gonzalez          | QA Testing / Deployment   |
 
 ---
 
